@@ -1,2 +1,2 @@
-import './js/fetchEvents';
-import './js/fetchCards';
+import EventsApiService from './js/fetchEvents';
+import renderMovies from './templates/card';
