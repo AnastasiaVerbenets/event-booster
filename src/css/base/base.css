@@ -1,13 +1,7 @@
 :root {
-  /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: 'Montserrat', serif;
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+  --animation: 350ms linear;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,17 +10,32 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-width: 100vw;
-  min-height: 100vh;
-  margin: 0;
+/* / */
+/* 
+::-webkit-scrollbar {
+  width: 9px;
 }
 
-main {
-  flex-grow: 1;
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
 }
-main:has(.back-link) {
-  text-align: center;
+
+::-webkit-scrollbar-thumb {
+  background-color: #dc56c5;
+  border-radius: 3px;
 }
+
+modal scrollbar
+.modal::-webkit-scrollbar {
+  width: 5px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+  margin: 15px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: #dc56c5;
+  border-radius: 15px;
+} */
