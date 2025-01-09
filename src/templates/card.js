@@ -1,17 +1,23 @@
-function renderMovies(movies) {
-  const markUp = movies
+export default function marUpEvents(events) {
+  const markUp = events
     .map(
-      movie => `
-    <li class="movie-item">
-          <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" >
-          <h2>${movie.title}</h2>
-          <p>Original language: ${movie.original_language}</p>
-          <p>Release date: ${movie.release_date}</p>
-          <p>Origin country: ${movie.origin_country}</p>
-          <p>Rating: ${movie.vote_average}</p>
-        </li>
-    `
-    )
+      event => {
+        const imgUrl = event.images[0]?.url || '';
+        const artist = event.name || 'No name avaible';
+        const date = event.dates.start.localDate || 'Unknown Date';
+        const location = event._embedded?.venues[0].name || 'Unknown Location';
+        const eventUrl = event.url || '#';
+
+        return `
+<li class="cards__item">
+          <img src="${imgUrl}" alt="${artist}" class="cards__img" />
+          <h4 class="cards__event">${artist}</h4>
+          <p class="cards__date">${date}</p>
+        <a href="${eventUrl}" target="_blank" rel="noopener noreferrer" class="cards__place">
+          <img src="/img/place.svg" alt="" />
+          ${location}
+        </a>
+      </li>
+    `})
     .join('');
-  list.insertAdjacentHTML('beforeend', markUp);
 }
