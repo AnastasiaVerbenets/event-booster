@@ -22,6 +22,7 @@
     text-align: center;
     font-weight: 900;
     font-size: 18px;
+    line-height: normal;
 
     margin-bottom: 25px;
     padding-top: 80px;
@@ -73,7 +74,7 @@
 
 @media only screen and (min-width: 768px) {
     .header {
-        background-image: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url('../imgs/header/tablet.jpg');
+        background-image: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url('/imgs/header/tablet.jpg');
     }
 
     .header__logo__image {
@@ -96,7 +97,7 @@
 
 @media only screen and (min-width: 1200px) {
     .header {
-        background-image: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url('../imgs/header/desktop.jpg');
+        background-image: linear-gradient(rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)), url('/imgs/header/desktop.jpg');
         height: 446px;
     }
 
@@ -105,8 +106,9 @@
         height: 160px;
     }
 
-    .header_title {
+    .header__title {
         font-size: 50px;
+        line-height: normal;
         margin-bottom: 52px;
     }
 }
