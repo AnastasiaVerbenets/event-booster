@@ -9,6 +9,14 @@ export default class EventsApiService {
     this.pageSize = 8;
   }
 
+  getApiKey() {
+    return this.#API_KEY;
+  }
+
+  getBaseUrl() {
+    return this.#BASE_URL;
+  }
+
   async fetchEvents() {
     const searchParams = new URLSearchParams({
       apikey: this.#API_KEY,
