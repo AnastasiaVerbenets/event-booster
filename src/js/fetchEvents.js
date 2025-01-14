@@ -21,7 +21,7 @@ export default class EventsApiService {
     const searchParams = new URLSearchParams({
       apikey: this.#API_KEY,
       page: this.page,
-      size: this.size,
+      size: this.pageSize,
     });
     const url = `${this.#BASE_URL}?${searchParams}&classificationName=music`;
     const response = await fetch(url);

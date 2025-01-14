@@ -71,6 +71,44 @@
     background-color: transparent;
     border: none;
 }
+ 
+/* .header__select {
+    outline: none;
+}
+.custom-select {
+    position: relative;
+    width: 200px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .custom-select .options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 1;
+  }
+  
+  .custom-select .option {
+    padding: 10px;
+  }
+  
+  .custom-select .option:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .custom-select.open .options {
+    display: block;
+  } */
+  
 
 @media only screen and (min-width: 768px) {
     .header {
