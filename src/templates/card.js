@@ -1,4 +1,4 @@
-export default function marUpEvents(events) {
+export default function markUpEvents(events) {
   const markUp = events
     .map(
       event => {
@@ -18,6 +18,7 @@ export default function marUpEvents(events) {
           ${location}
         </a>
       </li>
-    `})
-    .join('');
+    `});
+
+  return markUp.join('');
 }

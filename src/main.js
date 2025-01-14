@@ -1,1 +1,1 @@
-import renderEvent from './js/baseMarkUp';
+import renderEvent from '../src/js/baseMarkUp';
