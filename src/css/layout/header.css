@@ -70,44 +70,30 @@
     right: 30px;
     background-color: transparent;
     border: none;
+    width: 20px;
+    height: 20px;
 }
  
-/* .header__select {
+.header__select {
     outline: none;
-}
-.custom-select {
-    position: relative;
-    width: 200px;
-    font-size: 16px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 10px;
-  }
-  
-  .custom-select .options {
-    display: none;
+    width: 20px;
+    height: 20px;
+
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    z-index: 1;
-  }
-  
-  .custom-select .option {
-    padding: 10px;
-  }
-  
-  .custom-select .option:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .custom-select.open .options {
-    display: block;
-  } */
+    top: 14px;
+    right: 30px;
+    /* opacity: 0; */
+}
+
+.header__form__button {
+    transition: all 0.4s ease;
+}
+
+.header__form__button:hover {
+    transform: rotateZ(-90deg);
+}
+
+
   
 
 @media only screen and (min-width: 768px) {
