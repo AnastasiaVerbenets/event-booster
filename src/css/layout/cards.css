@@ -3,8 +3,6 @@
   color: white;
   padding-top: 25px;
   padding-bottom: 60px;
-
-  /* height: 700px; */
 }
 
 .cards__list {
@@ -39,6 +37,13 @@
   border: 1px solid rgba(220, 86, 197, 0.3);
 }
 
+.cards__img {
+  width: 128px;
+  height: 161px;
+  border-radius: 50px 0px;
+  object-fit: cover;
+}
+
 .cards__event {
   color: #dc56c5;
   font-size: 14px;
@@ -69,6 +74,18 @@
 
   .cards__item {
     width: 185px;
+  }
+
+  .cards__item::after {
+    top: -14px;
+    right: -14px;
+    width: 153px;
+    height: 143px;
+  }
+
+  .cards__img {
+    width: 180px;
+    height: 227px;
   }
 
   .cards__event,

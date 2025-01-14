@@ -1,15 +1,17 @@
-import FetchEvents from './fetchEvents';
-import marUpEvents from '../templates/card';
+import EventsApiService from './fetchEvents';
+import markUpEvents from '../templates/card';
 
 const list = document.getElementById('js-list');
 
-const fetchEvents = new FetchEvents();
+const eventsApiService = new EventsApiService();
 
-async function renderEvent() {
+renderEvent();
+
+export default async function renderEvent() {
     try {
-        const data = await fetchEvents.EventsApiService();
+        const data = await eventsApiService.fetchEvents();
         const events = data._embedded?.events || [];
-        const markUp = marUpEvents(events);
+        const markUp = markUpEvents(events);
 
         list.insertAdjacentHTML('beforeend', markUp);
 
@@ -18,4 +20,3 @@ async function renderEvent() {
     }
 }
 
-renderEvent();
