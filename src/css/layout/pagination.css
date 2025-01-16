@@ -6,16 +6,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 25px;
+    gap: 4px;
 }
 
 .pagination__list__item {}
 
 .pagination__list__button {
-    border: none;
+    width: 30px;
+    height: 30px;
     background-color: transparent;
     color: white;
     font-size: 14px;
+    font-family: 'Montserrat', serif;
+    font-weight: 400;
 }
 
 .pagination__list__button:hover {
@@ -26,7 +29,11 @@
     border-radius: 10px 0px;
     border: 1px solid #DC56C5;
     color: #DC56C5;
-    width: 30px;
-    height: 30px;
-    flex-shrink: 0;
+}
+
+.pagination__dots {
+    display: inline-block;
+    margin: 0 5px;
+    color: white;
+    font-size: 14px;
 }
