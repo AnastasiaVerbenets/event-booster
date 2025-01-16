@@ -18,6 +18,10 @@
     font-size: 14px;
 }
 
+.pagination__list__button:hover {
+    color: #DC56C5;
+}
+
 .active {
     border-radius: 10px 0px;
     border: 1px solid #DC56C5;
