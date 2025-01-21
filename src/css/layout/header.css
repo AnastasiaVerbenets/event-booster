@@ -109,7 +109,7 @@
 }
 
 .header__select {
-    
+    z-index: 10000;
 }
 
 .header__selected {
@@ -124,19 +124,25 @@
 
 .header__dropdown {
     color: #939393;
-    background-color: #fff;
+    background-color: #0b0b0b;
     width: 200px;
     border-radius: 15px;
+    box-shadow: 0 0 2px #DC56C5, 0 0 15px #DC56C5;
 }
 
 .select__option {
     display: flex;
     align-items: center;
     padding-left: 10px;
+    
+}
+
+.select__option:hover {
+    background-color: #303030;
 }
 
 .select__option:not(last-child) {
-    border-bottom: 1px solid #939393;
+    /* border-bottom: 1px solid #0b0b0b; */
 }
 
 .open {
