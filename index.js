@@ -10,11 +10,11 @@ var f=o=>{throw TypeError(o)};var E=(o,e,n)=>e.has(o)||f("Cannot "+n);var l=(o,e
           ${i}
         </a>
       </li>
-    `}).join("")}function v(o,e,n){const r=document.querySelector(".pagination__list"),a=L(o,e).map(s=>s==="..."?`      <li class="pagination__list__item">
-        <span class="pagination__dots">...</span>
-      </li>`:`      <li class="pagination__list__item">
-        <button class="pagination__list__button ${s===e?"active":""}" data-page=${s}>${s+1}</button>
-      </li>`).join("");r.insertAdjacentHTML("beforeend",a),r.addEventListener("click",i);function i(s){if(s.target.tagName!=="BUTTON")return;const c=Number(s.target.dataset.page);c!==e&&n(c)}}function L(o,e){const n=[];if(o<=5)for(let t=0;t<o;t++)n.push(t);else{e>1&&n.push(0),e>2&&n.push("...");const t=Math.max(0,e-1),a=Math.min(o,e+2);for(let i=t;i<a;i++)n.push(i);e<o-3&&n.push("..."),e<o-1&&n.push(o-1)}return n}const h=document.getElementById("js-list");document.querySelector(".pagination__list");const g=new y;A();async function A(){var o;try{const e=await g.fetchEvents(),n=((o=e._embedded)==null?void 0:o.events)||[],r=S(n);h.insertAdjacentHTML("beforeend",r);const t=e.page.totalPages;v(t,g.page,U)}catch(e){console.error(e)}}function b(){h.innerHTML=""}function U(o){o!==g.page&&(g.page=o,b(),A())}async function B(){try{let a=function(i){return`
+    `}).join("")}function v(o,e,n){const r=document.querySelector(".pagination__list");r.innerHTML="";const a=L(o,e).map(s=>s==="..."?`<li class="pagination__list__item">
+          <span class="pagination__dots">...</span>
+        </li>`:`<li class="pagination__list__item">
+        <button class="pagination__list__button ${s===e?"active":""}" data-page="${s}">${s+1}</button>
+      </li>`).join("");r.insertAdjacentHTML("beforeend",a),r.addEventListener("click",i);function i(s){if(s.target.tagName!=="BUTTON")return;const c=Number(s.target.dataset.page);c!==e&&n(c)}}function L(o,e){const n=[];if(o<=5)for(let t=0;t<o;t++)n.push(t);else{e>2&&n.push(0),e>3&&n.push("...");const t=Math.max(0,e-1),a=Math.min(o,e+2);for(let i=t;i<a;i++)n.push(i);e<o-3&&n.push("..."),e<o-2&&n.push(o-1)}return n}const h=document.getElementById("js-list");document.querySelector(".pagination__list");const g=new y;A();async function A(){var o;try{const e=await g.fetchEvents(),n=((o=e._embedded)==null?void 0:o.events)||[],r=S(n);h.insertAdjacentHTML("beforeend",r);const t=e.page.totalPages;v(t,g.page,U)}catch(e){console.error(e)}}function b(){h.innerHTML=""}function U(o){o!==g.page&&(g.page=o,b(),A())}async function B(){try{let a=function(i){return`
         <li class="select__option">
           <img src="${`/imgs/header/flags/${i.code.toLowerCase()}.png`}" alt="${i.name}" class="flag__img">
           ${i.name}
