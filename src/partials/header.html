@@ -22,11 +22,12 @@
     <form class="header__form">
       <label class="header__form__label">
         <input
-          type="search"
+          type="text"
           class="header__form__input"
           placeholder="Start searching"
+          pattern="[A-Za-z]+"
         />
-        <button type="button" class="header__form__button" id="searchButton">
+        <button type="button" class="header__form__button search__button" id="searchButton">
           <svg
             id="headerInputIcon"
             xmlns="http://www.w3.org/2000/svg"
@@ -44,12 +45,13 @@
       </label>
       <label class="header__form__label">
         <input
-          type="search"
+          type="text"
           class="header__form__input"
           placeholder="Choose country"
           id="countryInput"
+          pattern="[A-Za-z]+"
         />
-        <button type="button" class="header__form__button" id="countryButton">
+        <button type="button" class="header__form__button country__button" id="countryButton">
           <svg
             id="headerInputIcon"
             xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +67,8 @@
             />
           </svg>
         </button>
-        <select name="countries" id="countryList" class="header__select" placeholder="">
+        <!-- <select name="countries" id="countryList" class="header__select" placeholder="">
+          <option value=""></option>
           <optgroup id="europe" label="Europe"></optgroup>
           <hr />
           <optgroup id="northamerica" label="North America"></optgroup>
@@ -78,7 +81,14 @@
           <hr />
           <optgroup id="oceania" label="Oceania"></optgroup>
           <hr />
-        </select>
+        </select> -->
+        <div class="header__select">
+          <div class="header__selected">
+            <img id="selectedFlag" src="" alt="" class="flag__img" />
+          </div>
+          <ul class="header__dropdown">
+          </ul>
+        </div>
       </label>
     </form>
 
