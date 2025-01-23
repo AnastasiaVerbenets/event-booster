@@ -9,7 +9,7 @@ export default function markUpEvents(events) {
         const eventUrl = event.url || '#';
 
         return `
-<li class="cards__item">
+<li class="cards__item" data-id="${event.id}">
           <img src="${imgUrl}" alt="${artist}" class="cards__img" />
           <h4 class="cards__event">${artist}</h4>
           <p class="cards__date">${date}</p>

@@ -1,3 +1,2 @@
 import renderEvent from './js/baseMarkUp';
-import './js/header/header';
-import './js/header/fetchCountries'
+import openModalCard from './js/modalCardsRender';
