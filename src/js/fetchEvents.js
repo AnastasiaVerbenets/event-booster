@@ -15,13 +15,14 @@ export default class EventsApiService {
     return this.#BASE_URL;
   }
 
-  async fetchEvents() {
+  async fetchEvents({ id = null } = {}) {
     const searchParams = new URLSearchParams({
       apikey: this.#API_KEY,
       page: this.page,
       size: this.pageSize,
     });
-    const url = `${this.#BASE_URL}?${searchParams}&classificationName=music`;
+    const url = id ? `${this.#BASE_URL}/${id}?${searchParams}` : `${this.#BASE_URL}?${searchParams}&classificationName=music`;
+    // const url = `${this.#BASE_URL}?${searchParams}&classificationName=music`;
     const response = await fetch(url);
 
     if (!response.ok) {
