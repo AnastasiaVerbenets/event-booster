@@ -5,14 +5,7 @@ export default class EventsApiService {
   constructor() {
     this.page = 0;
     this.pageSize = 12;
-  }
-
-  getApiKey() {
-    return this.#API_KEY;
-  }
-
-  getBaseUrl() {
-    return this.#BASE_URL;
+    this.searchQuery = '';
   }
 
   async fetchEvents({ id = null } = {}) {
@@ -20,6 +13,7 @@ export default class EventsApiService {
       apikey: this.#API_KEY,
       page: this.page,
       size: this.pageSize,
+      keyword: this.searchQuery,
     });
     const url = id ? `${this.#BASE_URL}/${id}?${searchParams}` : `${this.#BASE_URL}?${searchParams}&classificationName=music`;
     // const url = `${this.#BASE_URL}?${searchParams}&classificationName=music`;
@@ -31,4 +25,3 @@ export default class EventsApiService {
     return response.json();
   }
 }
-

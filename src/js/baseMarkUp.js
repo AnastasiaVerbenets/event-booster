@@ -4,8 +4,25 @@ import { renderPagination } from './pagination';
 
 const list = document.getElementById('js-list');
 const paginationList = document.querySelector('.pagination__list');
+const search = document.getElementById('searchInput');
+const form = document.getElementById('headerForm');
 
 const eventsApiService = new EventsApiService();
+
+form.addEventListener('submit', onSearchQuery)
+
+async function onSearchQuery(e) {
+  e.preventDefault()
+    
+    eventsApiService.searchQuery = search.value.trim();
+    eventsApiService.page = 0;
+    clearEventsList();
+    clearPagination();
+
+    console.log();
+
+    await renderEvent();
+}
 
 renderEvent();
 
@@ -32,4 +49,8 @@ function onPageClick(newPage) {
     eventsApiService.page = newPage;
     clearEventsList();
     renderEvent();
+}
+
+function clearPagination() {
+  paginationList.innerHTML = '';
 }
