@@ -1,23 +1,63 @@
-var f=o=>{throw TypeError(o)};var E=(o,e,n)=>e.has(o)||f("Cannot "+n);var l=(o,e,n)=>(E(o,e,"read from private field"),n?n.call(o):e.get(o)),p=(o,e,n)=>e.has(o)?f("Cannot add the same private member more than once"):e instanceof WeakSet?e.add(o):e.set(o,n);(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))r(t);new MutationObserver(t=>{for(const a of t)if(a.type==="childList")for(const i of a.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&r(i)}).observe(document,{childList:!0,subtree:!0});function n(t){const a={};return t.integrity&&(a.integrity=t.integrity),t.referrerPolicy&&(a.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?a.credentials="include":t.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function r(t){if(t.ep)return;t.ep=!0;const a=n(t);fetch(t.href,a)}})();var m,u;class y{constructor(){p(this,m,"cAC0PQfupJc4LZexavuatT33ADOVunkK");p(this,u,"https://app.ticketmaster.com/discovery/v2/events.json");this.page=0,this.pageSize=12}getApiKey(){return l(this,m)}getBaseUrl(){return l(this,u)}async fetchEvents(){const e=new URLSearchParams({apikey:l(this,m),page:this.page,size:this.pageSize}),n=`${l(this,u)}?${e}&classificationName=music`,r=await fetch(n);if(!r.ok)throw new Error("Failed to fetch events");return r.json()}}m=new WeakMap,u=new WeakMap;function S(o){return o.map(n=>{var c,d;const r=((c=n.images[0])==null?void 0:c.url)||"",t=n.name||"No name avaible",a=n.dates.start.localDate||"Unknown Date",i=((d=n._embedded)==null?void 0:d.venues[0].name)||"Unknown Location",s=n.url||"#";return`
-<li class="cards__item">
-          <img src="${r}" alt="${t}" class="cards__img" />
-          <h4 class="cards__event">${t}</h4>
-          <p class="cards__date">${a}</p>
-        <a href="${s}" target="_blank" rel="noopener noreferrer" class="cards__location">
+var p=e=>{throw TypeError(e)};var v=(e,s,t)=>s.has(e)||p("Cannot "+t);var r=(e,s,t)=>(v(e,s,"read from private field"),t?t.call(e):s.get(e)),m=(e,s,t)=>s.has(e)?p("Cannot add the same private member more than once"):s instanceof WeakSet?s.add(e):s.set(e,t);(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))n(a);new MutationObserver(a=>{for(const o of a)if(o.type==="childList")for(const l of o.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&n(l)}).observe(document,{childList:!0,subtree:!0});function t(a){const o={};return a.integrity&&(o.integrity=a.integrity),a.referrerPolicy&&(o.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?o.credentials="include":a.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function n(a){if(a.ep)return;a.ep=!0;const o=t(a);fetch(a.href,o)}})();var d,i;class f{constructor(){m(this,d,"cAC0PQfupJc4LZexavuatT33ADOVunkK");m(this,i,"https://app.ticketmaster.com/discovery/v2/events.json");this.page=0,this.pageSize=12}getApiKey(){return r(this,d)}getBaseUrl(){return r(this,i)}async fetchEvents({id:s=null}={}){const t=new URLSearchParams({apikey:r(this,d),page:this.page,size:this.pageSize}),n=s?`${r(this,i)}/${s}?${t}`:`${r(this,i)}?${t}&classificationName=music`,a=await fetch(n);if(!a.ok)throw new Error("Failed to fetch events");return a.json()}}d=new WeakMap,i=new WeakMap;function y(e){return e.map(t=>{var _,u;const n=((_=t.images[0])==null?void 0:_.url)||"",a=t.name||"No name avaible",o=t.dates.start.localDate||"Unknown Date",l=((u=t._embedded)==null?void 0:u.venues[0].name)||"Unknown Location",h=t.url||"#";return`
+<li class="cards__item" data-id="${t.id}">
+          <img src="${n}" alt="${a}" class="cards__img" />
+          <h4 class="cards__event">${a}</h4>
+          <p class="cards__date">${o}</p>
+        <a href="${h}" target="_blank" rel="noopener noreferrer" class="cards__location">
           <svg class="cards__icon">
             <use href="/imgs/icons/symbol-defs.svg#location"></use>
           </svg>
-          ${i}
+          ${l}
         </a>
       </li>
-    `}).join("")}function v(o,e,n){const r=document.querySelector(".pagination__list");r.innerHTML="";const a=L(o,e).map(s=>s==="..."?`<li class="pagination__list__item">
-          <span class="pagination__dots">...</span>
-        </li>`:`<li class="pagination__list__item">
-        <button class="pagination__list__button ${s===e?"active":""}" data-page="${s}">${s+1}</button>
-      </li>`).join("");r.insertAdjacentHTML("beforeend",a),r.addEventListener("click",i);function i(s){if(s.target.tagName!=="BUTTON")return;const c=Number(s.target.dataset.page);c!==e&&n(c)}}function L(o,e){const n=[];if(o<=5)for(let t=0;t<o;t++)n.push(t);else{e>2&&n.push(0),e>3&&n.push("...");const t=Math.max(0,e-1),a=Math.min(o,e+2);for(let i=t;i<a;i++)n.push(i);e<o-3&&n.push("..."),e<o-2&&n.push(o-1)}return n}const h=document.getElementById("js-list");document.querySelector(".pagination__list");const g=new y;A();async function A(){var o;try{const e=await g.fetchEvents(),n=((o=e._embedded)==null?void 0:o.events)||[],r=S(n);h.insertAdjacentHTML("beforeend",r);const t=e.page.totalPages;v(t,g.page,U)}catch(e){console.error(e)}}function b(){h.innerHTML=""}function U(o){o!==g.page&&(g.page=o,b(),A())}async function B(){try{let a=function(i){return`
-        <li class="select__option">
-          <img src="${`/imgs/header/flags/${i.code.toLowerCase()}.png`}" alt="${i.name}" class="flag__img">
-          ${i.name}
-        </li>
-      `};var o=a;const e=[{code:"US",name:"USA",region:"NorthAmerica"},{code:"CA",name:"Canada",region:"NorthAmerica"},{code:"MX",name:"Mexico",region:"NorthAmerica"},{code:"AR",name:"Argentina",region:"SouthAmerica"},{code:"BR",name:"Brazil",region:"SouthAmerica"},{code:"CO",name:"Colombia",region:"SouthAmerica"},{code:"PE",name:"Peru",region:"SouthAmerica"},{code:"VE",name:"Venezuela",region:"SouthAmerica"},{code:"UY",name:"Uruguay",region:"SouthAmerica"},{code:"AT",name:"Austria",region:"Europe"},{code:"BE",name:"Belgium",region:"Europe"},{code:"BG",name:"Bulgaria",region:"Europe"},{code:"DE",name:"Germany",region:"Europe"},{code:"ES",name:"Spain",region:"Europe"},{code:"FR",name:"France",region:"Europe"},{code:"GB",name:"Great Britain",region:"Europe"},{code:"IT",name:"Italy",region:"Europe"},{code:"PL",name:"Poland",region:"Europe"},{code:"PT",name:"Portugal",region:"Europe"},{code:"RU",name:"Russia",region:"Europe"},{code:"SE",name:"Sweden",region:"Europe"},{code:"CN",name:"China",region:"Asia"},{code:"IN",name:"India",region:"Asia"},{code:"JP",name:"Japan",region:"Asia"},{code:"KR",name:"Korea",region:"Asia"},{code:"SG",name:"Singapore",region:"Asia"},{code:"TH",name:"Thailand",region:"Asia"},{code:"TR",name:"Turkey",region:"Asia"},{code:"IL",name:"Israel",region:"Asia"},{code:"AE",name:"UAE",region:"Asia"},{code:"SA",name:"Saudi Arabia",region:"Asia"},{code:"ZA",name:"South Africa",region:"Africa"},{code:"NG",name:"Nigeria",region:"Africa"},{code:"EG",name:"Egypt",region:"Africa"},{code:"KE",name:"Kenya",region:"Africa"},{code:"AU",name:"Australia",region:"Oceania"},{code:"NZ",name:"New Zealand",region:"Oceania"}],n=document.querySelector(".header__select"),r=document.getElementById("selectedFlag"),t=document.querySelector(".header__dropdown");n.addEventListener("click",()=>{n.classList.toggle("open"),e.forEach(i=>{t.insertAdjacentHTML("beforeend",a(i))})}),t.addEventListener("click",i=>{const s=i.target.closest(".select__option");if(s){const c=s.textContent.trim(),d=e.find(_=>_.name===c);r.src=`/imgs/header/flags/${d.code.toLowerCase()}.png`,r.alt=d.name,n.classList.remove("open")}}),document.addEventListener("click",()=>{n.classList.remove("open")})}catch(e){console.error(e)}}B();
+    `}).join("")}const b=document.getElementById("js-list");document.querySelector(".pagination__list");const E=new f;k();async function k(){var e;try{const t=((e=(await E.fetchEvents())._embedded)==null?void 0:e.events)||[],n=y(t);b.insertAdjacentHTML("beforeend",n)}catch(s){console.error(s)}}function U(e){return`
+    <div class="modal" id="js-modal">
+        <button type="button" class="modal__btn-close">
+            <svg class="modal__icon-close">
+                <use href="../imgs/icons/symbol-defs.svg#close"></use>
+            </svg>
+        </button>
+
+        <img src="../imgs/modal/artist.png" alt="" class="modal__img" />
+
+        <div class="modal__box">
+            <img src="../imgs/modal/main-img.png" alt="" class="modal__main-img" />
+
+            <div class="modal__info">
+                <h4 class="modal__title">INFO</h4>
+                <p class="modal__text">Atlas Weekend is the largest music festival in Ukraine.
+                    More than 200 artists will create a proper music festival atmosphere on 10 stages</p>
+
+                <h4 class="modal__title">WHEN</h4>
+                <p class="modal__text modal__text--none">2021-06-09</p>
+                <p class="modal__text">20:00 (Kyiv/Ukraine)</p>
+
+                <h4 class="modal__title">WHERE</h4>
+                <p class="modal__text modal__text--none">Kyiv, Ukraine</p>
+                <p class="modal__text">VDNH</p>
+
+                <h4 class="modal__title">WHO</h4>
+                <p class="modal__text">The Black Eyed Peas</p>
+
+                <h4 class="modal__title">PRICES</h4>
+                <p class="modal__tex modal__text-ticket">
+                    <svg class="modal__ticket">
+                        <use href="../imgs/icons/symbol-defs.svg#ticket"></use>
+                    </svg> Standart 300-500 UAH
+                </p>
+                <button class="modal__buy-btn">BUY TICKETS</button>
+
+                <p class="modal__text modal__text-ticket">
+                    <svg class="modal__ticket">
+                        <use href="../imgs/icons/symbol-defs.svg#ticket"></use>
+                    </svg>
+                    VIP 1000-1500 UAH
+                </p>
+                <button class="modal__buy-btn">BUY TICKETS</button>
+            </div>
+        </div>
+        <button class="modal__more-btn">MORE FROM THIS AUTHOR</button>
+
+    </div>
+    `}const L=document.getElementById("js-list"),c=document.getElementById("modal-card"),A=new f;L.addEventListener("click",x);async function x(e){const s=e.target.closest(".cards__item");if(s){s.dataset.id;try{const t=await A.fetchEvents("1a9Zk7Y34xAZe56"),n=U(t);c.insertAdjacentHTML("beforeend",n),c.classList.remove("hidden"),c.addEventListener("click",g)}catch(t){console.error(t)}}}function g(e){(e.target.classList.contains("modal__btn-close")||e.target===c)&&(c.classList.add("hidden"),c.removeEventListener("click",g),c.innerHTML="")}
 //# sourceMappingURL=index.js.map
