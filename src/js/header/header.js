@@ -1,12 +1,19 @@
-// const button = document.getElementById('countryButton');
-// const select = document.getElementById('countryList');
-// const input = document.getElementById('countryInput');
+import EventsApiService from '../fetchEvents';
+import renderEvent from '../baseMarkUp';
+import clearEventsList from'../baseMarkUp';
 
+const eventsApiService = new EventsApiService();
 
-// button.addEventListener('click', () => {
-//     select.click();
-// })
+const countrySearch = document.getElementById('countryInput');
+const search = document.getElementById('searchInput');
+const form = document.getElementById('headerForm');
 
-// input.addEventListener('click', () => {
-//     select.click();
-// })
+form.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    
+    eventsApiService.searchParams = search.value;
+    eventsApiService.page = 0;
+    clearEventsList();
+
+    await renderEvent();
+})
