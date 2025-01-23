@@ -3,14 +3,14 @@ export default function modalMarkUp(modal) {
     <div class="modal" id="js-modal">
         <button type="button" class="modal__btn-close">
             <svg class="modal__icon-close">
-                <use href="../imgs/icons/symbol-defs.svg#close"></use>
+                <use href="/imgs/icons/symbol-defs.svg#close"></use>
             </svg>
         </button>
 
-        <img src="../imgs/modal/artist.png" alt="" class="modal__img" />
+        <img src="/imgs/modal/artist.png" alt="" class="modal__img" />
 
         <div class="modal__box">
-            <img src="../imgs/modal/main-img.png" alt="" class="modal__main-img" />
+            <img src="/imgs/modal/main-img.png" alt="" class="modal__main-img" />
 
             <div class="modal__info">
                 <h4 class="modal__title">INFO</h4>
