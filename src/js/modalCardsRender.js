@@ -15,9 +15,11 @@ export default async function openModalCard(e) {
 
     const eventId = card.dataset.id;
 
+    console.log(eventId);
+
     try {
-        const eventData = await eventsApiService.fetchEvents('1a9Zk7Y34xAZe56');
-        // const eventData = await eventsApiService.fetchEvents({ id: eventId });
+        // const eventData = await eventsApiService.fetchEvents('1a9Zk7Y34xAZe56');
+        const eventData = await eventsApiService.fetchEventsById(eventId);
 
         const markUp = modalMarkUp(eventData);
 
