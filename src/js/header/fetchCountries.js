@@ -44,6 +44,8 @@ async function renderCountries() {
     const selectedFlag = document.getElementById('selectedFlag');
     const dropdown = document.querySelector('.header__dropdown');
 
+    selectedFlag.style.display = 'none';
+
     function createOption(country) {
       const flagSrc = `/imgs/header/flags/${country.code.toLowerCase()}.png`;
 
@@ -70,13 +72,14 @@ async function renderCountries() {
           country => country.name === countryName
         );
 
+        selectedFlag.style.display = 'block';
         selectedFlag.src = `/imgs/header/flags/${selectedCountry.code.toLowerCase()}.png`;
         selectedFlag.alt = selectedCountry.name;
         select.classList.remove('open');
       }
     });
 
-    document.addEventListener('click', () => {
+    window.addEventListener('click', () => {
       select.classList.remove('open');
     });
 

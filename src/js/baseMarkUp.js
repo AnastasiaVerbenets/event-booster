@@ -9,7 +9,7 @@ const form = document.getElementById('headerForm');
 
 const eventsApiService = new EventsApiService();
 
-form.addEventListener('submit', onSearchQuery)
+search.addEventListener('input', onSearchQuery);
 
 async function onSearchQuery(e) {
   e.preventDefault()
@@ -18,8 +18,6 @@ async function onSearchQuery(e) {
     eventsApiService.page = 0;
     clearEventsList();
     clearPagination();
-
-    console.log();
 
     await renderEvent();
 }
