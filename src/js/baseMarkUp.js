@@ -25,6 +25,9 @@ async function onSearchQuery(e) {
 renderEvent();
 
 export default async function renderEvent() {
+    const data = await eventsApiService.fetchEvents();
+    console.log(data);
+
     try {
         const data = await eventsApiService.fetchEvents();
         const events = data._embedded?.events || [];
@@ -34,7 +37,7 @@ export default async function renderEvent() {
         const totalPages = data.page.totalPages;
         renderPagination(totalPages, eventsApiService.page, onPageClick);
     } catch (error) {
-        console.error(error);
+        console.error(error.status);
     }
 }
 

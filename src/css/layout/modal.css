@@ -7,7 +7,7 @@
 
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(1px);
-  z-index: 999;
+  z-index: 99999;
 
   box-sizing: border-box;
 
@@ -17,7 +17,7 @@
 
   opacity: 1;
 
-  transition: opacity 200ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
 }
 
 .backdrop.hidden {
@@ -60,8 +60,11 @@
 
 .modal__img {
   margin: 0 auto;
+  width: 102px;
+  height: 102px;
+  object-fit: cover;
   margin-bottom: 18px;
-  border-radius: 50%;
+  border-radius: 100%;
 }
 
 .modal__main-img {
@@ -84,6 +87,11 @@
   width: 243px;
   margin: 0 auto;
   margin-bottom: 10px;
+}
+
+.modal__description {
+  max-height: 60px;
+  overflow-y: hidden;
 }
 
 .modal__text--none {
@@ -147,11 +155,13 @@
   .modal {
     max-width: 595px;
     border-radius: 300px 0px;
-    padding: 26px 17px 56px 50px;
+    padding: 26px 17px 0 50px;
   }
 
   .modal__img {
     margin-bottom: 36px;
+    width: 70px;
+    height: 70px;
   }
 
   .modal__box {
@@ -165,6 +175,7 @@
     display: flex;
     width: 233px;
     height: 416px;
+    object-fit: cover;
   }
 
   .modal__info {
@@ -203,6 +214,8 @@
 
   .modal__img {
     margin-bottom: 41px;
+    width: 132px;
+    height: 132px;
   }
 
   .modal__main-img {
