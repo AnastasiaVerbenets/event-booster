@@ -14,8 +14,9 @@ export default class EventsApiService {
       page: this.page,
       size: this.pageSize,
       keyword: this.searchQuery,
+      sort: 'rendom',
     });
-    // const url = id ? `${this.#BASE_URL}/${id}?${searchParams}` : `${this.#BASE_URL}?${searchParams}&classificationName=music`;
+
     const url = `${this.#BASE_URL}?${searchParams}&classificationName=music`;
     const response = await fetch(url);
 
@@ -29,12 +30,9 @@ export default class EventsApiService {
   async fetchEventsById(id) {
     const searchParams = new URLSearchParams({
       apikey: this.#API_KEY,
-      page: this.page,
-      size: this.pageSize,
-      keyword: this.searchQuery,
     });
-    // const url = id ? `${this.#BASE_URL}/${id}?${searchParams}` : `${this.#BASE_URL}?${searchParams}&classificationName=music`;
-    const url = `${this.#BASE_URL}/${id}?${searchParams}`;
+
+    const url = `https://app.ticketmaster.com/discovery/v2/events/${id}.json?${searchParams}`;
     const response = await fetch(url);
 
     if (!response.ok) {

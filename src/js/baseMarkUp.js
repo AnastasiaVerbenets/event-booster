@@ -12,8 +12,8 @@ const eventsApiService = new EventsApiService();
 search.addEventListener('input', onSearchQuery);
 
 async function onSearchQuery(e) {
-  e.preventDefault()
-    
+    e.preventDefault()
+
     eventsApiService.searchQuery = search.value.trim();
     eventsApiService.page = 0;
     clearEventsList();
@@ -31,8 +31,8 @@ export default async function renderEvent() {
         const markUp = markUpEvents(events);
 
         list.insertAdjacentHTML('beforeend', markUp);
-        // const totalPages = data.page.totalPages;
-        // renderPagination(totalPages, eventsApiService.page, onPageClick);
+        const totalPages = data.page.totalPages;
+        renderPagination(totalPages, eventsApiService.page, onPageClick);
     } catch (error) {
         console.error(error);
     }
@@ -50,5 +50,5 @@ function onPageClick(newPage) {
 }
 
 function clearPagination() {
-  paginationList.innerHTML = '';
+    paginationList.innerHTML = '';
 }
