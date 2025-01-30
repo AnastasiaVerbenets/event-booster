@@ -9,6 +9,8 @@ const form = document.getElementById('headerForm');
 
 const eventsApiService = new EventsApiService();
 
+renderEvent();
+
 search.addEventListener('input', onSearchQuery);
 
 async function onSearchQuery(e) {
@@ -22,12 +24,7 @@ async function onSearchQuery(e) {
     await renderEvent();
 }
 
-renderEvent();
-
 export default async function renderEvent() {
-    const data = await eventsApiService.fetchEvents();
-    console.log(data);
-
     try {
         const data = await eventsApiService.fetchEvents();
         const events = data._embedded?.events || [];
