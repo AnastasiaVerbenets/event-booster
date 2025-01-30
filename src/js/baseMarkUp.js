@@ -9,7 +9,9 @@ const form = document.getElementById('headerForm');
 
 const eventsApiService = new EventsApiService();
 
-form.addEventListener('submit', onSearchQuery)
+renderEvent();
+
+search.addEventListener('input', onSearchQuery);
 
 async function onSearchQuery(e) {
     e.preventDefault()
@@ -19,12 +21,8 @@ async function onSearchQuery(e) {
     clearEventsList();
     clearPagination();
 
-    console.log();
-
     await renderEvent();
 }
-
-renderEvent();
 
 export default async function renderEvent() {
     try {
@@ -36,7 +34,7 @@ export default async function renderEvent() {
         const totalPages = data.page.totalPages;
         renderPagination(totalPages, eventsApiService.page, onPageClick);
     } catch (error) {
-        console.error(error);
+        console.error(error.status);
     }
 }
 
