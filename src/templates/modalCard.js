@@ -2,12 +2,11 @@ export default function modalMarkUp(event) {
     const imgUrl = event.images[2]?.url || '';
     const description = event.info || event.description || 'No description available';
     const date = event.dates.start.localDate || 'Unknown Date';
-    const time = event.dates.start.localTime || 'Unknown Time';
+    const time = formatTime(event.dates.start.localTime);
     const location = event._embedded.venues[0]?.name || 'Unknown Location';
     const city = event._embedded.venues[0]?.city.name || '';
     const country = event._embedded.venues[0]?.country.name || '';
     const artist = event.name || 'No name avaible';
-
 
     const priceRanges = event.priceRanges || [];
     const standardPrice = priceRanges.find(price => price.type === 'standard') || '';
@@ -17,7 +16,24 @@ export default function modalMarkUp(event) {
     const vipMin = Math.round(vipPrice.min);
     const vipMax = Math.round(vipPrice.max);
 
+    const vipBox = vipPrice ? `
+        <p class="modal__text modal__text-ticket">
+           <img src="/imgs/icons/ticket.svg" alt="" class="modal__ticket">
+            VIP ${vipMin}-${vipMax} ${vipPrice.currency}
+        </p>
+        <button class="modal__buy-btn">BUY TICKETS</button>
+    ` : `
+        <p class="modal__text modal__text-ticket">
+        <img src="/imgs/icons/ticket.svg" alt="" class="modal__ticket">
+             VIP tickets are not available
+        </p>
+    `;
 
+    function formatTime(timeString) {
+        if (!timeString) return 'Unknown Time';
+        const [hours, minutes] = timeString.split(':');
+        return `${hours}:${minutes}`;
+    };
 
     return `
     <div class="modal">
@@ -49,20 +65,14 @@ export default function modalMarkUp(event) {
 
                 <h4 class="modal__title">PRICES</h4>
                 <p class="modal__text modal__text-ticket">
-                    <svg class="modal__ticket">
-                        <use href="/imgs/icons/symbol-defs.svg#ticket"></use>
-                    </svg> Standart ${standardMin}-${standardMax} ${standardPrice.currency}
+                    <img src="/imgs/icons/ticket.svg" alt="" class="modal__ticket"> 
+                    Standart ${standardMin}-${standardMax} ${standardPrice.currency}
                 </p>
                 <button class="modal__buy-btn">BUY TICKETS</button>
-                <p class="modal__text modal__text-ticket">
-                    <svg class="modal__ticket">
-                        <use href="/imgs/icons/symbol-defs.svg#ticket"></use>
-                    </svg>  VIP ${vipMin}-${vipMax} ${vipPrice.currency}
-                </p>
-                <button class="modal__buy-btn">BUY TICKETS</button>
+                ${vipBox}
             </div>
         </div>
-        <button class="modal__more-btn">MORE FROM THIS AUTHOR</button>
+        <button class="modal__more-btn" id="more-btn">MORE FROM THIS AUTHOR</button>
     </div>
     `;
 }
