@@ -106,12 +106,18 @@
   margin-bottom: 0;
 }
 
+.modal__text-standart {
+  margin-bottom: 20px;
+}
+
 .modal__ticket {
   width: 24px;
   height: 16px;
 }
 
 .modal__buy-btn {
+  margin-top: 10px;
+  margin-bottom: 20px;
   color: #fff;
   font-family: Montserrat;
   font-size: 16px;
@@ -119,8 +125,6 @@
   border-radius: 5px;
   background: #4c00fe;
   padding: 10px 19px;
-  margin-top: 10px;
-  margin-bottom: 20px;
 
   transition: all 350ms linear;
 }
@@ -253,6 +257,10 @@
   .modal__buy-btn {
     margin-top: 20px;
     margin-bottom: 30px;
+  }
+
+  .modal__more-btn {
+    margin-top: 45px;
   }
 }
 
