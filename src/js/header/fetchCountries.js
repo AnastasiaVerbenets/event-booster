@@ -106,9 +106,11 @@ async function renderCountries() {
 
     select.addEventListener('click', () => {
       select.classList.toggle('open');
-      countries.forEach(country => {
-        dropdown.insertAdjacentHTML('beforeend', createOption(country));
-      });
+      if (dropdown.children.length === 0) {
+        countries.forEach(country => {
+          dropdown.insertAdjacentHTML('beforeend', createOption(country));
+        });
+      }
     });
 
     dropdown.addEventListener('click', e => {
@@ -136,3 +138,4 @@ async function renderCountries() {
 }
 
 renderCountries();
+

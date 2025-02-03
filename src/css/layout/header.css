@@ -47,7 +47,7 @@
 
 .header__form__label:hover,
 .header__form__label:focus {
-  transform: scale(1.05);
+  transform: scale(1.03);
   box-shadow: 0 0 5px #dc56c5, 0 0 20px #dc56c5;
 }
 
@@ -103,8 +103,7 @@
   top: 11px;
   right: 30px;
   appearance: none;
-  background: url('/src/imgs/icons/symbol-defs.svg#arrow') no-repeat right 10px
-    center;
+  z-index: 10000;
 }
 
 .header__form__button {
@@ -115,11 +114,8 @@
   transform: scale(1.2);
 }
 
-.header__select {
-  z-index: 10000;
-}
-
 .header__selected {
+  width: 30px;
 }
 
 .flag__img {
