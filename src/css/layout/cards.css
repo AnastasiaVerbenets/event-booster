@@ -2,13 +2,6 @@
   color: white;
   padding-top: 25px;
   padding-bottom: 60px;
-
-  background-image: url('/imgs/bg-body.png');
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  min-height: 400px;
 }
 
 .cards__list {
@@ -71,9 +64,9 @@
 .cards__location {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
 
-  gap: 3px;
+  gap: 5px;
   font-size: 12px;
   font-weight: 600;
   margin-top: 5px;

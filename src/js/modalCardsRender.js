@@ -31,7 +31,10 @@ export default async function openModalCard(e) {
 }
 
 function onModalClose(e) {
-    if (e.target.classList.contains('modal__btn-close') || e.target === modalCard) {
+    const isCloseBtn = e.target.closest('.modal__btn-close');
+    const isBackdrop = e.target === modalCard;
+
+    if (isCloseBtn || isBackdrop) {
         modalCard.classList.add('hidden');
         modalCard.removeEventListener('click', onModalClose);
         modalCard.innerHTML = '';

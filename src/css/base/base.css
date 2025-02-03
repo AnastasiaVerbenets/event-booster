@@ -11,3 +11,10 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.bg-box {
+  background-image: url('/imgs/bg-body.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
