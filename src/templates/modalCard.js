@@ -19,24 +19,24 @@ export default function modalMarkUp(event) {
 
     const standardBox = standardPrice ? `
         <p class="modal__text modal__text-ticket ">
-           <img src="/imgs/modal/ticket.svg" alt="" class="modal__ticket">
+           <img src="../imgs/modal/ticket.svg" alt="" class="modal__ticket">
             Standart ${standardMin}-${standardMax} ${standardPrice.currency}
         </p>
         <button class="modal__buy-btn">BUY TICKETS</button>`
         :
         `<p class="modal__text modal__text-ticket modal__text-standart">
-        <img src="/imgs/modal/ticket.svg" alt="" class="modal__ticket">
+        <img src="../imgs/modal/ticket.svg" alt="" class="modal__ticket">
              Standart tickets are not available
         </p>`;
 
     const vipBox = vipPrice ? `
         <p class="modal__text modal__text-ticket">
-           <img src="/imgs/modal/ticket.svg" alt="" class="modal__ticket">
+           <img src="../imgs/modal/ticket.svg" alt="" class="modal__ticket">
             VIP ${vipMin}-${vipMax} ${vipPrice.currency}
         </p>
         <button class="modal__buy-btn">BUY TICKETS</button>` :
         `<p class="modal__text modal__text-ticket">
-        <img src="/imgs/modal/ticket.svg" alt="" class="modal__ticket">
+        <img src="../imgs/modal/ticket.svg" alt="" class="modal__ticket">
              VIP tickets are not available
         </p>`;
 
