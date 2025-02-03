@@ -119,5 +119,3 @@ export default function modalMarkUp(event) {
         </div>
 `;
 }
-{/* <button class="modal__more-btn">MORE FROM THIS AUTHOR</button> */ }
-
