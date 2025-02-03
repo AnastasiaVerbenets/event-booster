@@ -89,25 +89,16 @@
   margin-bottom: 10px;
 }
 
-.modal__description {
-  max-height: 60px;
-  overflow-y: hidden;
-}
-
 .modal__text--none {
   margin-bottom: 0px;
 }
 
 .modal__text-ticket {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
-  gap: 13px;
+  gap: 3px;
   margin-bottom: 0;
-}
-
-.modal__text-standart {
-  margin-bottom: 20px;
 }
 
 .modal__ticket {
@@ -145,7 +136,7 @@
   padding: 10px 3px;
   display: block;
   margin: 0 auto;
-  margin-top: 5px;
+  margin-top: 25px;
 
   transition: all 350ms linear;
 }
@@ -192,10 +183,11 @@
 
   .modal__text-ticket {
     justify-content: start;
+    gap: 10px;
   }
 
   .modal__more-btn {
-    margin-top: 23px;
+    margin-top: 63px;
     padding: 10px;
   }
 }
