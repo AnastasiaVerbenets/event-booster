@@ -1,4 +1,5 @@
 export default function modalMarkUp(event) {
+    const eventUrl = event.url || '#';
     const imgUrl = event.images[2]?.url || '';
     const description = event.info || event.description || 'No description available';
     const date = event.dates.start.localDate || 'Unknown Date';
@@ -16,18 +17,28 @@ export default function modalMarkUp(event) {
     const vipMin = Math.round(vipPrice.min);
     const vipMax = Math.round(vipPrice.max);
 
+    const standardBox = standardPrice ? `
+        <p class="modal__text modal__text-ticket ">
+           <img src="/imgs/modal/ticket.svg" alt="" class="modal__ticket">
+            Standart ${standardMin}-${standardMax} ${standardPrice.currency}
+        </p>
+        <button class="modal__buy-btn">BUY TICKETS</button>`
+        :
+        `<p class="modal__text modal__text-ticket modal__text-standart">
+        <img src="/imgs/modal/ticket.svg" alt="" class="modal__ticket">
+             Standart tickets are not available
+        </p>`;
+
     const vipBox = vipPrice ? `
         <p class="modal__text modal__text-ticket">
-           <img src="/imgs/icons/ticket.svg" alt="" class="modal__ticket">
+           <img src="/imgs/modal/ticket.svg" alt="" class="modal__ticket">
             VIP ${vipMin}-${vipMax} ${vipPrice.currency}
         </p>
-        <button class="modal__buy-btn">BUY TICKETS</button>
-    ` : `
-        <p class="modal__text modal__text-ticket">
-        <img src="/imgs/icons/ticket.svg" alt="" class="modal__ticket">
+        <button class="modal__buy-btn">BUY TICKETS</button>` :
+        `<p class="modal__text modal__text-ticket">
+        <img src="/imgs/modal/ticket.svg" alt="" class="modal__ticket">
              VIP tickets are not available
-        </p>
-    `;
+        </p>`;
 
     function formatTime(timeString) {
         if (!timeString) return 'Unknown Time';
@@ -64,15 +75,11 @@ export default function modalMarkUp(event) {
                 <p class="modal__text">${artist}</p>
 
                 <h4 class="modal__title">PRICES</h4>
-                <p class="modal__text modal__text-ticket">
-                    <img src="/imgs/icons/ticket.svg" alt="" class="modal__ticket"> 
-                    Standart ${standardMin}-${standardMax} ${standardPrice.currency}
-                </p>
-                <button class="modal__buy-btn">BUY TICKETS</button>
+                ${standardBox}
                 ${vipBox}
             </div>
         </div>
-        <button class="modal__more-btn" id="more-btn">MORE FROM THIS AUTHOR</button>
+        <button class="modal__more-btn">MORE FROM THIS AUTHOR</button>
     </div>
     `;
 }
