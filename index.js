@@ -15,19 +15,19 @@ var L=t=>{throw TypeError(t)};var R=(t,e,s)=>e.has(t)||L("Cannot "+s);var h=(t,e
         <button class="pagination__list__button ${c===e?"active":""}" data-page="${c}">${c+1}</button>
       </li>`).join("");a.insertAdjacentHTML("beforeend",o),a.addEventListener("click",i);function i(c){if(c.target.tagName!=="BUTTON")return;const r=Number(c.target.dataset.page);r!==e&&s(r)}}function F(t,e){const s=[];if(t<=5)for(let n=0;n<t;n++)s.push(n);else{e>2&&s.push(0),e>3&&s.push("...");const n=Math.max(0,e-1),o=Math.min(t,e+2);for(let i=n;i<o;i++)s.push(i);e<t-3&&s.push("..."),e<t-2&&s.push(t-1)}return s}const M=document.getElementById("js-list"),K=document.querySelector(".pagination__list"),U=document.getElementById("searchInput");document.getElementById("headerForm");const m=new x;y();U.addEventListener("input",Q);async function Q(t){t.preventDefault(),m.searchQuery=U.value.trim(),m.page=0,w(),q(),await y()}async function y(){var t;try{const e=await m.fetchEvents(),s=((t=e._embedded)==null?void 0:t.events)||[],a=C(s);M.insertAdjacentHTML("beforeend",a);const n=e.page.totalPages;D(n,m.page,V)}catch(e){console.error(e.status)}}function w(){M.innerHTML=""}function V(t){t!==m.page&&(m.page=t,w(),y())}function q(){K.innerHTML=""}function z(t){var b,$,k,E;t.url;const e=((b=t.images[2])==null?void 0:b.url)||"",s=t.info||t.description||"No description available",a=t.dates.start.localDate||"Unknown Date",n=N(t.dates.start.localTime),o=(($=t._embedded.venues[0])==null?void 0:$.name)||"Unknown Location",i=((k=t._embedded.venues[0])==null?void 0:k.city.name)||"",c=((E=t._embedded.venues[0])==null?void 0:E.country.name)||"",r=t.name||"No name avaible",u=t.priceRanges||[],p=u.find(d=>d.type==="standard")||"",f=u.find(d=>d.type==="vip")||"",B=Math.round(p.min),I=Math.round(p.max),S=Math.round(f.min),O=Math.round(f.max),A=p?`
         <p class="modal__text modal__text-ticket ">
-           <img src="/imgs/modal/ticket.svg" alt="" class="modal__ticket">
+           <img src="../imgs/modal/ticket.svg" alt="" class="modal__ticket">
             Standart ${B}-${I} ${p.currency}
         </p>
         <button class="modal__buy-btn">BUY TICKETS</button>`:`<p class="modal__text modal__text-ticket modal__text-standart">
-        <img src="/imgs/modal/ticket.svg" alt="" class="modal__ticket">
+        <img src="../imgs/modal/ticket.svg" alt="" class="modal__ticket">
              Standart tickets are not available
         </p>`,H=f?`
         <p class="modal__text modal__text-ticket">
-           <img src="/imgs/modal/ticket.svg" alt="" class="modal__ticket">
+           <img src="../imgs/modal/ticket.svg" alt="" class="modal__ticket">
             VIP ${S}-${O} ${f.currency}
         </p>
         <button class="modal__buy-btn">BUY TICKETS</button>`:`<p class="modal__text modal__text-ticket">
-        <img src="/imgs/modal/ticket.svg" alt="" class="modal__ticket">
+        <img src="../imgs/modal/ticket.svg" alt="" class="modal__ticket">
              VIP tickets are not available
         </p>`;function N(d){if(!d)return"Unknown Time";const[j,P]=d.split(":");return`${j}:${P}`}return`
     <div class="modal">
