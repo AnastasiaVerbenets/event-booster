@@ -75,10 +75,6 @@
   font-weight: 400;
 }
 
-/* .header__form__input::-ms-value {
-    color: #939393;
-} */
-
 .header__form__input::selection {
   background-color: #dc56c5;
   color: #939393;
