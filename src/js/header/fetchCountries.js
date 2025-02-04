@@ -96,21 +96,29 @@ async function renderCountries() {
     const select = document.querySelector('.header__select');
     const selectedFlag = document.getElementById('selectedFlag');
     const dropdown = document.querySelector('.header__dropdown');
+    const button = document.getElementById('countryButton');
+    const input = document.getElementById('countryInput');
 
     selectedFlag.style.display = 'none';
 
     function createOption(country) {
       const flagSrc = `/imgs/header/flags/${country.code.toLowerCase()}.png`;
-
+      
       return `
-        <li class="select__option">
-          <img src="${flagSrc}" alt="${country.name}" class="flag__img">
-          ${country.name}
+        <li class="select__option" data-id="${country.code}">
+          <img src="${flagSrc}" alt="${country.name}" class="flag__img">${country.name}
         </li>
       `;
     }
 
-    select.addEventListener('click', () => {
+    function dropdownSearch(filtered) {
+      dropdown.innerHTML = '';
+      filtered.forEach(country => {
+        dropdown.insertAdjacentHTML('beforeend', createOption(country))
+      });
+    }
+
+    button.addEventListener('click', () => {
       dropdown.classList.toggle('open');
       if (dropdown.children.length === 0) {
         countries.forEach(country => {
@@ -132,14 +140,27 @@ async function renderCountries() {
         selectedFlag.alt = selectedCountry.name;
         select.classList.remove('open');
 
+        const countryCode = e.target.dataset.id;
+        const countryQuery = countryCode.toLowerCase();
         eventsApiService.countryCode = selectedCountry.code;
         eventsApiService.page = 0;
 
+          console.log(countryQuery);
+
         clearEventsList();
         clearPagination();
-        await renderEvent()
+        await renderEvent({countryQuery})
       }
     });
+
+    input.addEventListener('input', e => {
+      const search = e.target.value.toLowerCase()
+      const filtered = countries.filter(country =>
+        country.name.toLowerCase().includes(search)
+      );
+
+      dropdownSearch(filtered)
+    })
 
     window.addEventListener('click', () => {
       dropdown.classList.remove('open');
