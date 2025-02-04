@@ -71,7 +71,7 @@ var U=e=>{throw TypeError(e)};var Y=(e,t,n)=>t.has(e)||U("Cannot "+n);var y=(e,t
         </div>
         <button class="modal__more-btn" onclick="window.open('${j}', '_blank')">MORE FROM THIS AUTHOR</button>
         </div>
-`}const ae=document.getElementById("js-list"),m=document.getElementById("modal-card"),oe=new S;ae.addEventListener("click",ce);async function ce(e){const t=e.target.closest(".cards__item");if(!t)return;const n=t.dataset.id;console.log(n);try{const o=await oe.fetchEventsById(n),a=ne(o);m.insertAdjacentHTML("beforeend",a),m.classList.remove("hidden"),m.addEventListener("click",O)}catch(o){console.error(o)}}function O(e){const t=e.target.closest(".modal__btn-close"),n=e.target===m;(t||n)&&(m.classList.add("hidden"),m.removeEventListener("click",O),m.innerHTML="")}const x=new S;async function se(){try{let c=function(s){return`
+`}const ae=document.getElementById("js-list"),m=document.getElementById("modal-card"),oe=new S;ae.addEventListener("click",ce);async function ce(e){const t=e.target.closest(".cards__item");if(!t)return;const n=t.dataset.id;try{const o=await oe.fetchEventsById(n),a=ne(o);m.insertAdjacentHTML("beforeend",a),m.classList.remove("hidden"),m.addEventListener("click",O)}catch(o){console.error(o)}}function O(e){const t=e.target.closest(".modal__btn-close"),n=e.target===m;(t||n)&&(m.classList.add("hidden"),m.removeEventListener("click",O),m.innerHTML="")}const x=new S;async function se(){try{let c=function(s){return`
         <li class="select__option">
           <img src="${`/imgs/header/flags/${s.code.toLowerCase()}.png`}" alt="${s.name}" class="flag__img">
           ${s.name}
