@@ -1,7 +1,3 @@
-.pagination__section {
-  background-color: black;
-}
-
 .pagination__list {
   display: flex;
   align-items: center;

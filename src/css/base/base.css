@@ -11,13 +11,11 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.bg-box {
+body {
   background-image: url('/imgs/bg-body.png');
-  background-position: top;
-  background-repeat: no-repeat;
   background-size: cover;
-
-  min-height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 *::-webkit-scrollbar {
