@@ -254,6 +254,7 @@
 
   .modal__more-btn {
     margin-top: 45px;
+    margin-bottom: 0;
   }
 }
 
