@@ -35,6 +35,12 @@
   border: 1px solid rgba(220, 86, 197, 0.3);
 }
 
+.cards__item:hover .cards__img {
+  box-shadow: 15px 10px 34px 0px rgba(220, 86, 197, 0.65);
+  -webkit-box-shadow: 15px 10px 34px 0px rgba(220, 86, 197, 0.65);
+  -moz-box-shadow: 15px 10px 34px 0px rgba(220, 86, 197, 0.65);
+}
+
 .cards__img {
   width: 128px;
   height: 161px;
@@ -43,11 +49,11 @@
   transition: all 350ms linear;
 }
 
-.cards__img:hover {
+/* .cards__img:hover {
   box-shadow: 15px 10px 34px 0px rgba(220, 86, 197, 0.65);
   -webkit-box-shadow: 15px 10px 34px 0px rgba(220, 86, 197, 0.65);
   -moz-box-shadow: 15px 10px 34px 0px rgba(220, 86, 197, 0.65);
-}
+} */
 
 .cards__event {
   color: #dc56c5;
