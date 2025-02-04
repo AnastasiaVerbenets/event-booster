@@ -38,7 +38,7 @@ export default async function renderEvent() {
     }
 }
 
-function clearEventsList() {
+export function clearEventsList() {
     list.innerHTML = '';
 }
 
@@ -49,6 +49,6 @@ function onPageClick(newPage) {
     renderEvent();
 }
 
-function clearPagination() {
+export function clearPagination() {
     paginationList.innerHTML = '';
 }

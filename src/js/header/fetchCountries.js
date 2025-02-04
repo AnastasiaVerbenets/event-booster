@@ -1,3 +1,9 @@
+import renderEvent from "../baseMarkUp";
+import EventsApiService from '../fetchEvents';
+import { clearEventsList, clearPagination } from '../baseMarkUp';
+
+const eventsApiService = new EventsApiService();
+
 async function renderCountries() {
   try {
     const countries = [
@@ -105,7 +111,7 @@ async function renderCountries() {
     }
 
     select.addEventListener('click', () => {
-      select.classList.toggle('open');
+      dropdown.classList.toggle('open');
       if (dropdown.children.length === 0) {
         countries.forEach(country => {
           dropdown.insertAdjacentHTML('beforeend', createOption(country));
@@ -113,7 +119,7 @@ async function renderCountries() {
       }
     });
 
-    dropdown.addEventListener('click', e => {
+    dropdown.addEventListener('click', async e => {
       const option = e.target.closest('.select__option');
       if (option) {
         const countryName = option.textContent.trim();
@@ -125,11 +131,18 @@ async function renderCountries() {
         selectedFlag.src = `/imgs/header/flags/${selectedCountry.code.toLowerCase()}.png`;
         selectedFlag.alt = selectedCountry.name;
         select.classList.remove('open');
+
+        eventsApiService.countryCode = selectedCountry.code;
+        eventsApiService.page = 0;
+
+        clearEventsList();
+        clearPagination();
+        await renderEvent()
       }
     });
 
     window.addEventListener('click', () => {
-      select.classList.remove('open');
+      dropdown.classList.remove('open');
     });
 
   } catch (error) {
