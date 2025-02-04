@@ -150,7 +150,7 @@
   .modal {
     max-width: 595px;
     border-radius: 300px 0px;
-    padding: 26px 17px 0 50px;
+    padding: 26px 17px 0 56px;
   }
 
   .modal__img {
@@ -187,8 +187,9 @@
   }
 
   .modal__more-btn {
-    margin-top: 63px;
+    margin-top: 43px;
     padding: 10px;
+    margin-bottom: 56px;
   }
 }
 
