@@ -6,6 +6,7 @@ export default class EventsApiService {
     this.page = 0;
     this.pageSize = 12;
     this.searchQuery = '';
+    this.countryCode = '';
   }
 
   async fetchEvents() {
@@ -15,6 +16,7 @@ export default class EventsApiService {
       size: this.pageSize,
       keyword: this.searchQuery,
       sort: 'random',
+      countryCode: this.countryCode,
     });
 
     const url = `${this.#BASE_URL}?${searchParams}&classificationName=music`;
