@@ -24,8 +24,16 @@ async function onSearchQuery(e) {
     await renderEvent();
 }
 
-export default async function renderEvent() {
+export default async function renderEvent({ countryCode } = {}) {
     try {
+        if (countryCode) {
+            eventsApiService.searchCountry = countryCode;
+        }
+
+        clearEventsList()
+
+        console.log(countryCode);
+
         const data = await eventsApiService.fetchEvents();
         const events = data._embedded?.events || [];
         const markUp = markUpEvents(events);

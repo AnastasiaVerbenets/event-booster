@@ -104,6 +104,9 @@
   right: 30px;
   appearance: none;
   z-index: 10000;
+  position: absolute;
+  top: 50px;
+  left: 0;
 }
 
 .header__form__button {
@@ -116,6 +119,9 @@
 
 .header__selected {
   width: 30px;
+  position: absolute;
+  top: -40px;
+  left: 120px;
 }
 
 .flag__img {
@@ -128,9 +134,11 @@
 .header__dropdown {
   color: #939393;
   background-color: #0b0b0b;
-  width: 200px;
+  width: 270px;
   border-radius: 15px;
   box-shadow: 0 0 2px #dc56c5, 0 0 15px #dc56c5;
+  height: 220px;
+  overflow-y: scroll;
 }
 
 .select__option {
@@ -172,6 +180,15 @@
     justify-content: center;
     gap: 30px;
   }
+
+  .header__dropdown {
+    width: 200px;
+  }
+
+  .header__select {
+    top: 50px;
+    left: 70px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -181,7 +198,7 @@
         rgba(11, 11, 11, 0.5)
       ),
       url('/imgs/header/desktop.jpg');
-    height: 446px;
+    height: 496px;
   }
 
   .header__logo__image {
